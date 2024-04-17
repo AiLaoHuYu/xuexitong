@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LeLe</string>
+    <string name="normal_video_time">1:34</string>
+    <string name="normal_video_title">这个视频的标题</string>
+    <string name="normal_author">张三</string>
+    <string name="normal_view_time">666次观看</string>
+    <string name="normal_update_time">02-20 10:22</string>
+</resources>
