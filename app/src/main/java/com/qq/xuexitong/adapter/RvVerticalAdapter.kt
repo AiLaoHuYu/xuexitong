@@ -34,12 +34,18 @@ class RvVerticalAdapter(list: ArrayList<String>) :
     }
 
     override fun baseBindView(holder: MyViewHolder, position: Int) {
+        if (position == 0) {
+            holder.title.isChecked = true
+            mSelectedItem = 0
+            onItemClick(holder, position)
+        }
         holder.bindData(contextList[position])
         buttonList.add(holder.title)
         holder.title.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                if (mSelectedItem >= 0)
-                    buttonList[mSelectedItem].isChecked = false
+                if (mSelectedItem >= 0) {
+                }
+                buttonList[mSelectedItem].isChecked = false
                 mSelectedItem = position
                 onItemClick(holder, position)
             }

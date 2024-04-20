@@ -1,13 +1,16 @@
 package com.qq.xuexitong.activity
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.qq.xuexitong.App
 import com.qq.xuexitong.R
 import com.qq.xuexitong.base.BaseFragment
 import com.qq.xuexitong.fragment.HomeFragment
@@ -17,34 +20,58 @@ import com.qq.xuexitong.fragment.NoteFragment
 
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = MainActivity::class.java.simpleName
     private lateinit var homeFragment: HomeFragment
     private lateinit var meFragment: MeFragment
     private lateinit var messageFragment: MessageFragment
     private lateinit var noteFragment: NoteFragment
     private lateinit var fragments: Array<BaseFragment>
     private lateinit var tvTitle: TextView
+    private lateinit var navigation: BottomNavigationView
+    private var clickIndex = R.id.main_home
 
     private val mOnNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            Log.d(
+                TAG,
+                "item.itemId: ${item.itemId} isLogin: ${App.isLogin} clickIndex: $clickIndex"
+            )
             when (item.itemId) {
                 R.id.main_home -> {
                     replaceFragment(fragments[0], fragments[0].tag.toString())
                     tvTitle.text = "首页"
+                    clickIndex = R.id.main_home
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.main_message -> {
-                    replaceFragment(fragments[1], fragments[1].tag.toString())
-                    tvTitle.text = "消息"
+                    if (App.isLogin) {
+                        replaceFragment(fragments[1], fragments[1].tag.toString())
+                        tvTitle.text = "消息"
+                        clickIndex = R.id.main_message
+                    } else {
+
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.main_note -> {
-                    replaceFragment(fragments[2], fragments[2].tag.toString())
-                    tvTitle.text = "笔记"
+                    if (App.isLogin) {
+                        replaceFragment(fragments[2], fragments[2].tag.toString())
+                        tvTitle.text = "笔记"
+                        clickIndex = R.id.main_note
+                    } else {
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.main_me -> {
                     replaceFragment(fragments[3], fragments[3].tag.toString())
                     tvTitle.text = "我"
+                    clickIndex = R.id.main_me
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -59,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        val navigation: BottomNavigationView = findViewById(R.id.bv_menu)
+        navigation = findViewById(R.id.bv_menu)
         tvTitle = findViewById(R.id.tv_title)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.itemIconTintList = null
