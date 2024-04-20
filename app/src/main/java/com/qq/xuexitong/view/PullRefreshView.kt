@@ -13,6 +13,10 @@ import android.view.*
 import android.widget.*
 
 import androidx.annotation.Nullable
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.gif.GifDrawable
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.qq.xuexitong.App
 import com.qq.xuexitong.R
 import com.qq.xuexitong.activity.ClassifyActivity
@@ -289,8 +293,6 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
     private fun initState() {
 
         // 只有在初始状态时，恢复成可拖拽
-        ivRefresh!!.visibility = VISIBLE
-        ivRefresh!!.setBackgroundResource(R.drawable.loading)
         mIsCanDrag = true
         mIsDragging = false
         mRefreshTip!!.text = "下拉刷新"
@@ -318,7 +320,21 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
             mOnRefreshListener!!.onRefresh()
         }
         mIsCanDrag = false
-        ivRefresh!!.setBackgroundResource(R.drawable.refresh)
+        ivRefresh!!.visibility = VISIBLE
+        Glide.with(context)
+            .asGif()
+            .load(R.drawable.loading)
+            .into(object  : SimpleTarget<GifDrawable>(){
+                override fun onResourceReady(
+                    resource: GifDrawable,
+                    transition: Transition<in GifDrawable>?
+                ) {
+                    resource.setLoopCount(2)
+                    ivRefresh!!.setImageDrawable(resource)
+                    resource.start()
+                }
+
+            })
         mRefreshTip!!.text = "正在刷新,请稍后..."
     }
 
@@ -343,7 +359,6 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
             // 从刷新状态进入，刷新头直接回到最初默认的位置
             // 即: 滑出界面，ScrollY 变成 0
             smoothScroll(scrollY, 0)
-            ivRefresh!!.visibility = GONE
         }
     }
 
@@ -487,6 +502,7 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
      */
     fun refreshComplete() {
         mRefreshTip!!.text = "刷新完成！"
+        ivRefresh!!.visibility = GONE
         setState(State.FLING)
     }
 

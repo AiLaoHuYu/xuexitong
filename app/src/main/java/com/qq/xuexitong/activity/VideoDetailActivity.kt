@@ -1,6 +1,5 @@
 package com.qq.xuexitong.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,8 +35,7 @@ class VideoDetailActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.iv_back -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                finish()
                 return
             }
         }

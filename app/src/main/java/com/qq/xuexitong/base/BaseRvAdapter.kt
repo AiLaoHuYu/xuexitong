@@ -8,6 +8,7 @@ abstract class BaseRvAdapter<T, VH : RecyclerView.ViewHolder?>(list: ArrayList<T
     RecyclerView.Adapter<VH>() {
 
     private var dataList: ArrayList<T> = list
+    lateinit var listener: OnClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         return baseCreateViewHolder(parent, viewType)
@@ -15,7 +16,7 @@ abstract class BaseRvAdapter<T, VH : RecyclerView.ViewHolder?>(list: ArrayList<T
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder?.itemView?.setOnClickListener(View.OnClickListener {
-            onItemClick(holder,position)
+            onItemClick(holder, position)
         })
         baseBindView(holder, position)
     }
@@ -25,10 +26,29 @@ abstract class BaseRvAdapter<T, VH : RecyclerView.ViewHolder?>(list: ArrayList<T
     }
 
 
+    interface OnClickListener {
+        fun onClick(text: String)
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.listener = onClickListener
+    }
+
+
     abstract fun onItemClick(holder: VH, position: Int)
 
     abstract fun baseCreateViewHolder(parent: ViewGroup, viewType: Int): VH
 
     abstract fun baseBindView(holder: VH, position: Int)
+
+    open fun notifyData(poiItemList: ArrayList<T>?) {
+        if (poiItemList != null) {
+            val previousSize: Int = dataList.size
+            dataList.clear()
+            notifyItemRangeRemoved(0, previousSize)
+            dataList.addAll(poiItemList)
+            notifyItemRangeInserted(0, poiItemList.size)
+        }
+    }
 
 }

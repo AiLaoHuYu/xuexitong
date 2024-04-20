@@ -49,9 +49,9 @@ class RvVerticalAdapter(list: ArrayList<String>) :
 
     override fun onItemClick(holder: MyViewHolder, position: Int) {
         //Item被点击后的回调
-        Log.d(App.TAG, "onItemClick: $position")
+        Log.d(App.TAG, "onItemClick: $position title: ${holder.title.text}")
         holder.title.isChecked = true
-
+        listener.onClick(holder.title.text as String)
     }
 
 }

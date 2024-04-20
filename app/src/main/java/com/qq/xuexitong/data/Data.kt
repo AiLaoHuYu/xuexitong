@@ -4,12 +4,13 @@ import com.qq.xuexitong.entity.VideoEntity
 
 open class Data {
 
-    companion object{
+    companion object {
+        val NOTIFY_DATA_CHANGE = 1
         var videoList: ArrayList<VideoEntity> = ArrayList()
         var titleList: ArrayList<String> = ArrayList()
 
 
-        fun addVideoList(){
+        fun addVideoList() {
             videoList.add(
                 VideoEntity(
                     "https://images.pexels.com/photos/20065715/pexels-photo-20065715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -39,7 +40,7 @@ open class Data {
             )
         }
 
-        fun addTitleList(){
+        fun addTitleList() {
             titleList.add("最新")
             titleList.add("文史")
             titleList.add("数理")
@@ -47,6 +48,19 @@ open class Data {
             titleList.add("地球")
             titleList.add("海洋")
             titleList.add("生命")
+        }
+
+        fun changeTitleList(list: ArrayList<String>) {
+            titleList = list
+        }
+
+        fun changeVideoList(list: ArrayList<VideoEntity>) {
+            if (videoList.size > 0) {
+                videoList.clear()
+                videoList.addAll(list)
+                return
+            }
+            videoList.addAll(list)
         }
 
 

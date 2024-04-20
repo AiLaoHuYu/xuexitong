@@ -16,6 +16,8 @@
             android:layout_height="50px"
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
             android:background="@drawable/loading"/>
 
         <TextView
