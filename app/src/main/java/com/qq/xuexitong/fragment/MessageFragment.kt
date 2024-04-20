@@ -18,7 +18,7 @@ class MessageFragment : BaseFragment() {
         return view
     }
 
-    override fun initView() {
+    override fun initView(view: View) {
         TODO("Not yet implemented")
     }
 

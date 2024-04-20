@@ -12,10 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:text="首页"
-        android:textColor="@color/black"
-        android:textSize="22sp" />
+        android:textColor="@color/text_black"
+        android:textSize="20sp" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

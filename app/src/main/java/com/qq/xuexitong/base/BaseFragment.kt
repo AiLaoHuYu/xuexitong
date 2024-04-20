@@ -28,7 +28,7 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View?
 
-    abstract fun initView()
+    abstract fun initView(view: View)
 
     abstract fun initData()
 

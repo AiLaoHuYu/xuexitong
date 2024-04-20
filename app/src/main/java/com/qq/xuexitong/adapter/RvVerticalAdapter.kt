@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import com.qq.xuexitong.App
 import com.qq.xuexitong.R
@@ -16,11 +16,12 @@ class RvVerticalAdapter(list: ArrayList<String>) :
 
     private var mContext: Context = App.getInstance()
     private var contextList: ArrayList<String> = list
+    private var mSelectedItem = -1
+    private val buttonList: ArrayList<RadioButton> = ArrayList()
 
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        private var title: TextView = view.findViewById(R.id.home_title)
+        var title: RadioButton = view.findViewById(R.id.home_title)
         fun bindData(text: String) {
             title.text = text
         }
@@ -34,11 +35,22 @@ class RvVerticalAdapter(list: ArrayList<String>) :
 
     override fun baseBindView(holder: MyViewHolder, position: Int) {
         holder.bindData(contextList[position])
+        buttonList.add(holder.title)
+        holder.title.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                if (mSelectedItem >= 0)
+                    buttonList[mSelectedItem].isChecked = false
+                mSelectedItem = position
+                onItemClick(holder, position)
+            }
+        }
+
     }
 
     override fun onItemClick(holder: MyViewHolder, position: Int) {
         //Item被点击后的回调
         Log.d(App.TAG, "onItemClick: $position")
+        holder.title.isChecked = true
 
     }
 

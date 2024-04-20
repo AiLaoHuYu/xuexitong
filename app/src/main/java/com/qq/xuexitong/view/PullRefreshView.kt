@@ -6,18 +6,16 @@ import android.animation.ValueAnimator
 import androidx.recyclerview.widget.RecyclerView
 import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.util.Log
 import android.view.*
+import android.widget.*
 
-import android.widget.ImageView
-
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-
-import android.widget.TextView
 import androidx.annotation.Nullable
+import com.qq.xuexitong.App
 import com.qq.xuexitong.R
+import com.qq.xuexitong.activity.ClassifyActivity
 import com.qq.xuexitong.utils.DensityUtil
 
 
@@ -111,9 +109,19 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
     private var mListLayoutParams: LayoutParams? = null
 
     /**
-     *
+     * 顶部的父布局
      */
     private var relativeLayout: RelativeLayout? = null
+
+    /**
+     * 全局的父布局
+     */
+    private var scrollView: ScrollView? = null
+
+    /**
+     * ScrollView只能包裹一层
+     */
+    private var linearLayout: LinearLayout? = null
 
     /**
      * 列表布局
@@ -220,15 +228,22 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
         //顶部的view布局
         relativeLayout = RelativeLayout(context)
         //右侧的图片
-        val imageView = ImageView(context)
+        val button = Button(context)
         //设置图片大小
         val layoutParams = RelativeLayout.LayoutParams(80, 80)
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
         layoutParams.addRule(RelativeLayout.CENTER_VERTICAL)
-        imageView.layoutParams = layoutParams
-        imageView.setBackgroundResource(R.drawable.bars)
-        imageView.setPadding(0, 0, 20, 0)
-        relativeLayout!!.addView(imageView)
+        layoutParams.rightMargin = 10
+        layoutParams.topMargin = 10
+        button.layoutParams = layoutParams
+        button.setBackgroundResource(R.drawable.bars)
+        button.setOnClickListener{
+            Log.d(TAG, "点击了分类的按钮")
+            val intent = Intent(context,ClassifyActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            App.getInstance().startActivity(intent)
+        }
+        relativeLayout!!.addView(button)
         //顶部的RecyclerView
         horizonRecyclerView = RecyclerView(context)
         horizonRecyclerView!!.tag = VERTICAL_LIST_TAG
