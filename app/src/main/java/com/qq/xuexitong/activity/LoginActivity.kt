@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import com.qq.xuexitong.R
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var ivBack: ImageView
+    private lateinit var llBack: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +20,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initView() {
-        ivBack = findViewById(R.id.iv_back)
-        ivBack.setOnClickListener(this)
+        llBack = findViewById(R.id.ll_back)
+        llBack.setOnClickListener(this)
     }
 
     override fun finish() {
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-            R.id.iv_back -> {
+            R.id.ll_back -> {
                 finish()
             }
         }

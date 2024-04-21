@@ -1,23 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/detail_tap_background"
     tools:context=".activity.LoginActivity">
 
     <RelativeLayout
+        android:id="@+id/rv_top"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/detail_tap_background">
+        android:layout_height="50dp">
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="80px"
-            android:layout_height="80px"
+        <LinearLayout
+            android:id="@+id/ll_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/back" />
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="7dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_browse"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/app_customer"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rv_top">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/app_login"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/et_user_id"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_login"
+            android:layout_alignLeft="@+id/tv_login"
+            android:layout_marginTop="20dp"
+            android:hint="@string/app_id_hint"
+            android:maxEms="1" />
+
+        <EditText
+            android:id="@+id/et_user_password"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_user_id"
+            android:layout_alignLeft="@+id/et_user_id"
+            android:hint="@string/app_user_password_hint"
+            android:maxEms="1" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

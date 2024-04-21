@@ -11,6 +11,9 @@ open class Data {
 
 
         fun addVideoList() {
+            if (videoList.size > 0) {
+                videoList.clear()
+            }
             videoList.add(
                 VideoEntity(
                     "https://images.pexels.com/photos/20065715/pexels-photo-20065715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -41,6 +44,9 @@ open class Data {
         }
 
         fun addTitleList() {
+            if (titleList.size > 0) {
+                titleList.clear()
+            }
             titleList.add("最新")
             titleList.add("文史")
             titleList.add("数理")

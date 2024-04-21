@@ -5,4 +5,9 @@
     <string name="normal_author">张三</string>
     <string name="normal_view_time">666次观看</string>
     <string name="normal_update_time">02-20 10:22</string>
+    <string name="app_browse">浏览模式</string>
+    <string name="app_customer">客服</string>
+    <string name="app_login">登录</string>
+    <string name="app_id_hint">手机号/超星号</string>
+    <string name="app_user_password_hint">密码</string>
 </resources>
