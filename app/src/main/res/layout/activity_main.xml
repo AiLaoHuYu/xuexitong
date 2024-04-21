@@ -26,13 +26,12 @@
         android:layout_below="@+id/tv_title" />
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
         android:id="@+id/bv_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        app:menu="@menu/nav_menu"
         tools:layout_height="50dp" />
 
 

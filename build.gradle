@@ -2,13 +2,13 @@
 buildscript {
     ext.kotlin_version = "1.5.0"
     repositories {
-        maven {
-            url uri('http://nexus.txzing.com:8081/repository/maven-public')
-            credentials {
-                username 'txz_readonly'
-                password 'txz_readonly'
-            }
-        }
+//        maven {
+//            url uri('http://nexus.txzing.com:8081/repository/maven-public')
+//            credentials {
+//                username 'txz_readonly'
+//                password 'txz_readonly'
+//            }
+//        }
         google()
         mavenCentral()
     }
