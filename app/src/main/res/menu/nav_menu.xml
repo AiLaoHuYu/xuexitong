@@ -3,17 +3,18 @@
     <item
         android:id="@+id/main_home"
         android:icon="@drawable/home"
-        android:title="首页" />
+        android:checked="true"
+        android:title="@string/nav_home" />
     <item
         android:id="@+id/main_message"
         android:icon="@drawable/message"
-        android:title="消息" />
+        android:title="@string/nav_message" />
     <item
         android:id="@+id/main_note"
         android:icon="@drawable/note"
-        android:title="笔记" />
+        android:title="@string/nav_note" />
     <item
         android:id="@+id/main_me"
         android:icon="@drawable/me"
-        android:title="我" />
+        android:title="@string/nav_me" />
 </menu>

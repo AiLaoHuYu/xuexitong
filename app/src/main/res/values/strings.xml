@@ -10,4 +10,16 @@
     <string name="app_login">登录</string>
     <string name="app_id_hint">手机号/超星号</string>
     <string name="app_user_password_hint">密码</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_message">消息</string>
+    <string name="nav_note">笔记</string>
+    <string name="nav_me">我</string>
+    <string name="login_agree">我已阅读并同意学习通</string>
+    <string name="login_agree_login_policy">《登录政策》</string>
+    <string name="login_forget_password">忘记密码？</string>
+    <string name="btn_login">登录</string>
+    <string name="login_user_register">新用户注册</string>
+    <string name="login_by_phone">手机号快捷登录</string>
+    <string name="login_by_other">其他登录方式</string>
+    <string name="login_agree_user_policy">《用户协议》</string>
 </resources>
