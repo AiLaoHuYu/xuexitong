@@ -1,6 +1,7 @@
 package com.qq.xuexitong
 
 import android.app.Application
+import android.widget.Toast
 import com.qq.xuexitong.utils.SharedPreferencesUtil
 
 class App : Application() {
@@ -11,6 +12,10 @@ class App : Application() {
         var isLogin = false
         fun getInstance(): App {
             return app
+        }
+
+        fun showTips(text: String, duration: Int) {
+            Toast.makeText(getInstance(), text, duration).show()
         }
     }
 
