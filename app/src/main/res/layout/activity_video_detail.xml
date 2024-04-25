@@ -9,26 +9,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/detail_tap_background">
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_margin="10dp"
             android:src="@drawable/back" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/img_video"
+        <VideoView
+            android:id="@+id/vv_video"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
