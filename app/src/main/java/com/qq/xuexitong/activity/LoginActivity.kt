@@ -11,7 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.qq.xuexitong.App
 import com.qq.xuexitong.R
-import com.qq.xuexitong.utils.OkHttpUtil
+import com.qq.xuexitong.mode.UserModel
 import java.util.*
 
 class LoginActivity() : AppCompatActivity(), View.OnClickListener {
@@ -28,7 +28,7 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
     private lateinit var tvLoginByOther: TextView
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
-    private lateinit var agree:CheckBox
+    private lateinit var agree: CheckBox
     private var isPasswordLock = true
     private var url: String =
         "http://192.168.14.161:8080/user/login?userName=%USER&password=%PASSWORD"
@@ -116,11 +116,11 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
                     return
                 }
                 realUrl = realUrl.replace("%PASSWORD", userPassword)
-                if (!agree.isChecked){
+                if (!agree.isChecked) {
                     showPopup()
                     return
                 }
-                OkHttpUtil.login(realUrl)
+                UserModel.get().login(realUrl)
                 Log.d(TAG, "用户点击了登录按钮: $realUrl")
             }
             R.id.tv_login_by_phone -> {

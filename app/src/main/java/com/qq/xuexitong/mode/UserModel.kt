@@ -1,15 +1,28 @@
-package com.qq.xuexitong.utils
+package com.qq.xuexitong.mode
 
 import android.util.Log
-import com.google.gson.*
+import com.google.gson.Gson
 import com.qq.xuexitong.entity.UserResult
 import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.Executors
 
-object OkHttpUtil {
+open class UserModel {
 
-    private val TAG = OkHttpUtil::class.java.simpleName
+    private val TAG = UserModel::class.java.simpleName
+
+    companion object {
+        private var mInstance = UserModel()
+        fun get(): UserModel {
+            if (mInstance == null) {
+                synchronized(UserModel::class.java) {
+                    if (mInstance == null)
+                        mInstance = UserModel()
+                }
+            }
+            return mInstance
+        }
+    }
 
     fun login(url: String) {
         val thread = Executors.newSingleThreadExecutor()
