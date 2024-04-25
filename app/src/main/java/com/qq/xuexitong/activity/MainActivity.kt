@@ -77,6 +77,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
             hideFragment(it)
         }
         showFragment(fragments[0])
+        //防止第一次点击无效果，先模拟点击一次
+        navigation.selectTab(0)
     }
 
     //添加Fragment到FragmentList中
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
 
     // 清空fragmentList的所有Fragment，替换成新的Fragment，注意Fragment里面的坑
     private fun replaceFragment(fragment: Fragment, tag: String) {
+        Log.d(TAG, "replaceFragment: ${fragment.activity?.localClassName}")
         val fragmentManager = supportFragmentManager
         val transaction: FragmentTransaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment, tag)
@@ -158,6 +161,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
                 }
             }
             3 -> {
+                Log.d(TAG, "onTabSelected: ME")
                 replaceFragment(fragments[3], fragments[3].tag.toString())
                 tvTitle.text = "我"
                 clickIndex = 3

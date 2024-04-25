@@ -18,10 +18,10 @@ open class SharedPreferencesUtil {
     }
 
     private val sharedPreferences: SharedPreferences =
-        App.getInstance().getSharedPreferences("user", 0)
+        App.getInstance().getSharedPreferences("xuexitong", 0)
 
-    internal fun getStringFromSharedPreferences(key: String): String {
-        return sharedPreferences.getString(key, "youke")
+    internal fun getStringFromSharedPreferences(key: String, def: String): String {
+        return sharedPreferences.getString(key, def)
     }
 
     internal fun setStringToSharedPreferences(key: String, value: String) {

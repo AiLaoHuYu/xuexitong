@@ -22,4 +22,11 @@
     <string name="login_by_phone">手机号快捷登录</string>
     <string name="login_by_other">其他登录方式</string>
     <string name="login_agree_user_policy">《用户协议》</string>
+    <string name="user_todo">代办</string>
+    <string name="user_class">课程</string>
+    <string name="user_notebook">笔记本</string>
+    <string name="user_yun">云盘</string>
+    <string name="user_group">小组</string>
+    <string name="user_bookshelf">书架</string>
+    <string name="user_setting">设置</string>
 </resources>

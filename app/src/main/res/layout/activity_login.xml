@@ -19,15 +19,16 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="80px"
-                android:layout_height="80px"
-                android:layout_marginLeft="10dp"
-                android:paddingTop="7dp"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:src="@drawable/black_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/app_browse"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
