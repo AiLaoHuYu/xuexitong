@@ -23,7 +23,7 @@
                 android:layout_height="80px"
                 android:layout_marginLeft="10dp"
                 android:paddingTop="7dp"
-                android:src="@drawable/back" />
+                android:src="@drawable/black_back" />
 
             <TextView
                 android:layout_width="wrap_content"
