@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin10"
-        android:layout_marginBottom="@dimen/margin20"
+        android:layout_marginTop="@dimen/dimen10"
+        android:layout_marginBottom="@dimen/dimen20"
         android:text="@string/title_home"
         android:textColor="@color/text_black"
         android:textSize="20sp" />

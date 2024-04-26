@@ -2,6 +2,9 @@ package com.qq.xuexitong.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.text.TextUtils
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -12,9 +15,23 @@ import androidx.appcompat.app.AlertDialog
 import com.qq.xuexitong.App
 import com.qq.xuexitong.R
 import com.qq.xuexitong.mode.UserModel
+import com.qq.xuexitong.utils.PopupUtil
+import java.lang.ref.WeakReference
 import java.util.*
 
 class LoginActivity() : AppCompatActivity(), View.OnClickListener {
+
+    companion object {
+        private var instance: LoginActivity? = null
+
+        @Synchronized
+        fun get(): LoginActivity {
+            if (instance == null) {
+                instance = LoginActivity()
+            }
+            return instance!!
+        }
+    }
 
     private val TAG = LoginActivity::class.java.simpleName
     private lateinit var llBack: LinearLayout
@@ -31,12 +48,13 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
     private lateinit var agree: CheckBox
     private var isPasswordLock = true
     private var url: String =
-        "http://192.168.14.161:8080/user/login?userName=%USER&password=%PASSWORD"
+        "http://192.168.1.2:8080/user/login?userName=%USER&password=%PASSWORD"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         overridePendingTransition(R.anim.app_bottom_in, R.anim.bottom_silent)
+        get()
         supportActionBar!!.hide()
         initView()
     }
@@ -112,12 +130,12 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
                 realUrl = realUrl.replace("%USER", userName)
                 val userPassword = etUserPassword.text.toString()
                 if (TextUtils.isEmpty(userPassword)) {
-                    App.showTips("密码为空，请先输入密码", Toast.LENGTH_SHORT)
+                    PopupUtil.showPopup(this, "密码为空，请先输入密码", true, "确定", null)
                     return
                 }
                 realUrl = realUrl.replace("%PASSWORD", userPassword)
                 if (!agree.isChecked) {
-                    showPopup()
+                    PopupUtil.showPopup(this, "请先阅读并同意协议", true, 2000)
                     return
                 }
                 UserModel.get().login(realUrl)
@@ -139,26 +157,6 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
                 Log.d(TAG, "用户点击了其他用户政策")
             }
         }
-    }
-
-    private fun showPopup() {
-        //创建弹窗构建器
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            .setTitle("Tips")
-            .setMessage("请先阅读并同意协议") //点击窗口以外的区域，窗口消失 (默认为true)
-            .setCancelable(true)
-        //创建弹窗
-        val dlg: AlertDialog = builder.create()
-        //窗口显示
-        dlg.show()
-        //时间线程，2s后执行里面的代码
-        val t = Timer()
-        t.schedule(object : TimerTask() {
-            override fun run() {
-                //窗口消失
-                dlg.dismiss()
-            }
-        }, 2000)
     }
 
 
