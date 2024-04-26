@@ -234,7 +234,7 @@ class PullRefreshView(context: Context?, @Nullable attrs: AttributeSet?, defStyl
         //右侧的图片
         val button = Button(context)
         //设置图片大小
-        val layoutParams = RelativeLayout.LayoutParams(80, 80)
+        val layoutParams = RelativeLayout.LayoutParams(60, 60)
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
         layoutParams.addRule(RelativeLayout.CENTER_VERTICAL)
         layoutParams.rightMargin = 10
