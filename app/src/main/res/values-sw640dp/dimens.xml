@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<dimen name="fab_margin">28.4444dp</dimen>
+	<dimen name="fab_margin">22.7556dp</dimen>
+	<dimen name="back_size">35.5556dp</dimen>
+	<dimen name="dimen10">14.2222dp</dimen>
+	<dimen name="dimen20">28.4444dp</dimen>
+	<dimen name="dimen70">99.5556dp</dimen>
+	<dimen name="dimen50">71.1111dp</dimen>
+	<dimen name="dimen5">7.1111dp</dimen>
+	<dimen name="dimen40">56.8889dp</dimen>
+	<dimen name="dimen25">35.5556dp</dimen>
+	<dimen name="dimen45">64.0000dp</dimen>
+	<dimen name="dimen30">42.6667dp</dimen>
+	<dimen name="dimen200">284.4444dp</dimen>
+	<dimen name="dimen80">113.7778dp</dimen>
 </resources>

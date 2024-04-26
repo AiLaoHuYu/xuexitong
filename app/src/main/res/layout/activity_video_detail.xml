@@ -10,15 +10,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="@dimen/dimen20"
+        android:layout_marginBottom="@dimen/dimen20"
         android:background="@drawable/detail_tap_background">
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="60px"
-            android:layout_height="60px"
-            android:layout_margin="10dp"
+            android:layout_width="@dimen/dimen25"
+            android:layout_height="@dimen/dimen25"
+            android:layout_margin="@dimen/dimen10"
             android:src="@drawable/white_back" />
 
         <VideoView

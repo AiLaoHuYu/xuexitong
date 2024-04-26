@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="首页"
+        android:layout_marginTop="@dimen/margin10"
+        android:layout_marginBottom="@dimen/margin20"
+        android:text="@string/title_home"
         android:textColor="@color/text_black"
         android:textSize="20sp" />
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        tools:layout_height="50dp" />
+        tools:layout_height="@dimen/dimen50" />
 
 
 </RelativeLayout>

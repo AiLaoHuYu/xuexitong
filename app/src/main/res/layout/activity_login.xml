@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rv_top"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/dimen50">
 
         <LinearLayout
             android:id="@+id/ll_back"
@@ -19,9 +19,9 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_marginLeft="5dp"
+                android:layout_width="@dimen/dimen20"
+                android:layout_height="@dimen/dimen20"
+                android:layout_marginLeft="@dimen/dimen5"
                 android:gravity="center"
                 android:src="@drawable/black_back" />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/dimen10"
             android:text="@string/app_customer"
             android:textColor="@color/gray"
             android:textSize="14sp" />
@@ -54,14 +54,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rv_top"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="@dimen/dimen20"
+        android:layout_marginRight="@dimen/dimen20">
 
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/dimen40"
             android:text="@string/app_login"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -74,7 +74,7 @@
             android:layout_below="@+id/tv_login"
             android:layout_alignLeft="@+id/tv_login"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dimen20"
             android:hint="@string/app_id_hint"
             android:inputType="textPersonName"
             android:maxEms="1" />
@@ -98,10 +98,10 @@
 
             <ImageView
                 android:id="@+id/iv_user_password"
-                android:layout_width="60px"
-                android:layout_height="60px"
+                android:layout_width="@dimen/dimen25"
+                android:layout_height="@dimen/dimen25"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="@dimen/dimen5"
                 android:layout_toLeftOf="@+id/user_forget_password"
                 android:src="@drawable/lock" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="@dimen/dimen5"
                 android:text="@string/login_forget_password"
                 android:textColor="@color/text_gray"
                 android:textSize="14sp" />
@@ -123,7 +123,7 @@
         <CheckBox
             android:id="@+id/agree"
             android:layout_width="wrap_content"
-            android:layout_height="100px"
+            android:layout_height="@dimen/dimen45"
             android:layout_below="@+id/rv_login_password"
             android:layout_alignLeft="@+id/rv_login_password"
             android:gravity="center"
@@ -133,7 +133,7 @@
         <TextView
             android:id="@+id/login_policy"
             android:layout_width="wrap_content"
-            android:layout_height="100px"
+            android:layout_height="@dimen/dimen45"
             android:layout_below="@+id/rv_login_password"
             android:layout_toRightOf="@+id/agree"
             android:gravity="center"
@@ -145,7 +145,7 @@
         <TextView
             android:id="@+id/agree_he"
             android:layout_width="wrap_content"
-            android:layout_height="100px"
+            android:layout_height="@dimen/dimen45"
             android:layout_below="@+id/rv_login_password"
             android:layout_toRightOf="@+id/login_policy"
             android:gravity="center"
@@ -156,7 +156,7 @@
         <TextView
             android:id="@+id/user_policy"
             android:layout_width="wrap_content"
-            android:layout_height="100px"
+            android:layout_height="@dimen/dimen45"
             android:layout_below="@+id/rv_login_password"
             android:layout_toRightOf="@+id/agree_he"
             android:gravity="center"
@@ -169,7 +169,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/user_policy"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/dimen30"
             android:background="@drawable/login_botton_background"
             android:text="@string/btn_login"
             android:textColor="@color/white" />
@@ -179,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_login"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dimen20"
             android:text="@string/login_user_register"
             android:textColor="@color/text_blue"
             android:textSize="12sp" />
@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_login"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dimen20"
             android:text="@string/login_by_phone"
             android:textColor="@color/text_blue"
             android:textSize="12sp" />
@@ -201,12 +201,12 @@
         android:id="@+id/tv_login_by_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/dimen20"
         android:text="@string/login_by_other"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textColor="@color/text_gray"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="@dimen/dimen50"
         android:textSize="12sp" />
 
 </RelativeLayout>

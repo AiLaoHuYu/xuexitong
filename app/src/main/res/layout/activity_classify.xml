@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin70"
+        android:layout_height="@dimen/dimen70"
         android:background="@drawable/classify_top_background">
 
         <ImageView
@@ -14,7 +14,7 @@
             android:layout_width="@dimen/back_size"
             android:layout_height="@dimen/back_size"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin10"
+            android:layout_marginLeft="@dimen/dimen10"
             android:src="@drawable/black_back" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin10"
+            android:layout_marginRight="@dimen/dimen10"
             android:text="观看历史"
             android:textColor="@color/text_blue_color"
             android:textSize="16sp" />
@@ -42,9 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray2"
-        android:paddingLeft="@dimen/margin10"
-        android:paddingTop="@dimen/margin10"
-        android:paddingRight="@dimen/margin10">
+        android:paddingLeft="@dimen/dimen10"
+        android:paddingTop="@dimen/dimen10"
+        android:paddingRight="@dimen/dimen10">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_classify"

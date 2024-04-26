@@ -29,4 +29,5 @@
     <string name="user_group">小组</string>
     <string name="user_bookshelf">书架</string>
     <string name="user_setting">设置</string>
+    <string name="title_home">首页</string>
 </resources>
