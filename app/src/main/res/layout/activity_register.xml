@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/detail_tap_background"
+    tools:context=".activity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rv_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen50">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dimen20"
+            android:layout_height="@dimen/dimen20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen5"
+            android:src="@drawable/black_back" />
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen10"
+            android:text="@string/app_customer"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rv_top"
+        android:layout_marginLeft="@dimen/dimen20"
+        android:layout_marginRight="@dimen/dimen20">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen40"
+            android:text="@string/register_title"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+
+        <EditText
+            android:id="@+id/et_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_login"
+            android:layout_alignLeft="@+id/tv_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen20"
+            android:hint="@string/phone_hint"
+            android:inputType="textPersonName"
+            android:maxEms="1" />
+
+
+        <RelativeLayout
+            android:id="@+id/rv_login_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_user_phone"
+            android:layout_alignLeft="@+id/et_user_phone">
+
+            <EditText
+                android:id="@+id/et_user_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/code_hint"
+                android:inputType="textPersonName"
+                android:maxEms="1" />
+
+            <TextView
+                android:id="@+id/tv_user_get_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen5"
+                android:text="@string/get_code"
+                android:textColor="@color/text_blue"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rv_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rv_login_code"
+            android:layout_alignLeft="@+id/rv_login_code">
+
+            <EditText
+                android:id="@+id/et_user_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/app_register_set_password"
+                android:inputType="textPassword"
+                android:maxEms="1" />
+
+            <ImageView
+                android:id="@+id/iv_user_password"
+                android:layout_width="@dimen/dimen25"
+                android:layout_height="@dimen/dimen25"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen5"
+                android:src="@drawable/lock" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/password_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen45"
+            android:layout_below="@+id/rv_login_password"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen20"
+            android:text="@string/password_hint"
+            android:textColor="@color/text_black"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_hint"
+            android:layout_marginTop="@dimen/dimen20"
+            android:background="@drawable/login_botton_background"
+            android:text="@string/next"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen45"
+            android:gravity="center"
+            android:text="@string/login_agree"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/login_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen45"
+            android:layout_toRightOf="@+id/agree"
+            android:gravity="center"
+            android:text="@string/login_agree_login_policy"
+            android:textColor="@color/text_blue"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/agree_he"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen45"
+            android:layout_toRightOf="@+id/login_policy"
+            android:gravity="center"
+            android:text="和"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/user_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen45"
+            android:layout_toRightOf="@+id/agree_he"
+            android:gravity="center"
+            android:text="@string/login_agree_user_policy"
+            android:textColor="@color/text_blue"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

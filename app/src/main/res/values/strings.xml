@@ -30,4 +30,13 @@
     <string name="user_bookshelf">书架</string>
     <string name="user_setting">设置</string>
     <string name="title_home">首页</string>
+    <string name="register_title">注册</string>
+    <string name="phone_hint">手机号</string>
+    <string name="code_hint">验证码</string>
+    <string name="get_code">获取验证码</string>
+    <string name="password_hint">密码要求8-16位，至少包含数字、字母、符号两种元素</string>
+    <string name="next">下一步</string>
+    <string name="app_register_set_password">设置密码</string>
+    <string name="login_policy">登录政策</string>
+    <string name="user_policy">用户协议</string>
 </resources>

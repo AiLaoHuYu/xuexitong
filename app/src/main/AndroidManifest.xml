@@ -16,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".activity.UserPolicyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.LoginPolicyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.LoginActivity"
             android:exported="true" />
         <activity

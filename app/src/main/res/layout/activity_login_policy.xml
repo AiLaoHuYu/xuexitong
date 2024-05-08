@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.LoginPolicyActivity">
+
+    <RelativeLayout
+        android:id="@+id/rv_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen50">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dimen20"
+            android:layout_height="@dimen/dimen20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen5"
+            android:src="@drawable/black_back" />
+
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen10"
+            android:text="@string/login_policy"
+            android:textColor="@color/text_black"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_login_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen10"
+            android:text="
+            \n尊敬的学员：\n
+
+为了保障您的账户安全和个人信息的保密性，我们制定了以下学习通登录政策。请您务必遵守并了解以下条款：
+\n\n
+账户安全：
+请妥善保管您的登录账号和密码，不要将其透露给他人。
+建议您定期更改密码，并确保密码的复杂性和独特性，避免使用与其他网站相同的密码。
+\n\n
+登录验证：
+在登录时，系统将要求您进行身份验证，以确保登录操作的合法性。
+为了增强账户安全性，我们可能会采用多因素身份验证等额外安全措施。
+\n\n
+公共设备使用：
+若您使用公共或共享设备登录学习通，请务必在使用完毕后安全退出账户，并清除浏览器缓存和记录，以防个人信息泄露。
+\n\n
+账户冻结与解冻：
+若发现异常登录行为或账户安全受到威胁，我们将可能暂时冻结您的账户以保护您的信息安全。
+如有账户冻结情况，请尽快联系我们的客服团队进行解冻操作。
+\n\n
+风险提示：
+请注意，学习通不会以任何形式要求您提供账号密码或其他个人敏感信息。如遇可疑信息或行为，请及时报告给我们的安全团队。
+我们重视您的账户安全和学习体验，感谢您对我们政策的理解与支持。如有任何疑问或建议，请随时联系我们的客服团队。
+\n\n
+祝您在学习通平台上取得愉快的学习体验！
+\n\n
+学习通团队"
+            android:textColor="@color/text_black2"
+            android:textSize="16sp"
+            android:lineSpacingExtra="@dimen/dimen10"/>
+
+    </ScrollView>
+
+</LinearLayout>

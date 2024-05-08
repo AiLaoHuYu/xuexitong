@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.LoginPolicyActivity">
+
+    <RelativeLayout
+        android:id="@+id/rv_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen50">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dimen20"
+            android:layout_height="@dimen/dimen20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen5"
+            android:src="@drawable/black_back" />
+
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dimen10"
+            android:text="@string/user_policy"
+            android:textColor="@color/text_black"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_login_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen10"
+            android:text="学习通 用户协议
+\n\n
+欢迎您使用学习通平台！在注册和使用学习通服务之前，请务必仔细阅读以下用户协议。您使用学习通服务即表示您已经阅读、理解并同意遵守本用户协议的全部条款和条件。
+\n\n
+一、服务内容
+\n\n
+学习通是一款提供在线学习和教育服务的平台，用户可以在学习通上浏览、购买和学习各类课程。
+学习通提供的课程包括但不限于在线视频课程、教学文档、测验和作业等。
+学习通保留根据实际情况随时调整、修改或中断部分或全部服务内容的权利。
+\n\n
+二、用户注册
+\n\n
+用户注册学习通账号时，应提供真实、准确、完整的个人信息，并保证及时更新。
+用户应妥善保管学习通账号和密码，不得将账号和密码泄露或提供给他人使用。
+\n\n
+三、用户行为规范
+\n\n
+用户应遵守中华人民共和国相关法律法规，不得利用学习通平台从事违法、违规或侵权行为。
+用户不得利用学习通平台发布、传播含有色情、暴力、诽谤、侮辱他人等违法违规内容的信息。
+用户不得利用学习通平台干扰、破坏学习通的正常运行，不得采取任何形式对学习通系统进行攻击或侵入。
+\n\n
+四、知识产权
+\n\n
+学习通上的所有课程内容（包括但不限于文字、图片、视频等）的知识产权归属于相应的权利人所有。
+用户在学习过程中获得的知识产权仅限于个人学习使用，不得用于商业目的或非法用途。
+\n\n
+五、免责声明
+\n\n
+用户理解并同意，使用学习通服务可能存在不可抗力因素，学习通不承担由此造成的责任。
+学习通不对用户使用服务而产生的任何直接、间接、偶然、特殊及继起的损害承担责任。
+\n\n
+六、协议的修改和解释
+\n\n
+学习通有权根据实际情况对本用户协议进行调整和修改，修改后的协议自发布之日起生效。
+对于用户违反本用户协议的行为，学习通有权根据情况中止或终止用户的账号使用权限。
+\n\n
+七、其他
+\n\n
+本用户协议适用中华人民共和国法律，并由学习通负责解释和执行。
+\n
+若用户对本用户协议或学习通服务有任何疑问或建议，可通过学习通平台联系客服解决。
+\n
+感谢您阅读并遵守本用户协议，祝您在学习通平台上学习愉快！"
+            android:textColor="@color/text_black2"
+            android:textSize="16sp"
+            android:lineSpacingExtra="@dimen/dimen10"/>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,23 +1,18 @@
 package com.qq.xuexitong.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.text.TextUtils
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import com.qq.xuexitong.App
 import com.qq.xuexitong.R
 import com.qq.xuexitong.mode.UserModel
 import com.qq.xuexitong.utils.PopupUtil
-import java.lang.ref.WeakReference
-import java.util.*
 
 class LoginActivity() : AppCompatActivity(), View.OnClickListener {
 
@@ -48,7 +43,7 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
     private lateinit var agree: CheckBox
     private var isPasswordLock = true
     private var url: String =
-        "http://192.168.1.2:8080/user/login?userName=%USER&password=%PASSWORD"
+        "http://192.168.13.197:8080/user/login?userName=%USER&password=%PASSWORD"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -146,15 +141,20 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tv_user_register -> {
                 Log.d(TAG, "用户点击了新用户注册")
+                val intent = Intent(App.getInstance(), RegisterActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
             R.id.tv_login_by_other -> {
                 Log.d(TAG, "用户点击了其他登录方式")
             }
             R.id.login_policy -> {
-                Log.d(TAG, "用户点击了其他登录政策")
+                Log.d(TAG, "用户点击了登录政策")
+                UserModel.get().toLoginPolicy()
             }
             R.id.user_policy -> {
-                Log.d(TAG, "用户点击了其他用户政策")
+                Log.d(TAG, "用户点击了用户政策")
+                UserModel.get().toUserPolicy()
             }
         }
     }

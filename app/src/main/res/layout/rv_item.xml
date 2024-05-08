@@ -24,17 +24,17 @@
 
         <TextView
             android:id="@+id/tv_time"
-            android:layout_width="80px"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/video"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="15dp"
             android:background="@drawable/tv_background"
             android:text="@string/normal_video_time"
             android:textColor="#ffffff"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
     </RelativeLayout>
 

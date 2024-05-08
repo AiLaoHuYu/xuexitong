@@ -1,5 +1,6 @@
 package com.qq.xuexitong.mode
 
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
@@ -7,11 +8,10 @@ import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
 import com.qq.xuexitong.App
-import com.qq.xuexitong.activity.LoginActivity
+import com.qq.xuexitong.activity.LoginPolicyActivity
+import com.qq.xuexitong.activity.UserPolicyActivity
 import com.qq.xuexitong.entity.UserEntity
 import com.qq.xuexitong.entity.UserResult
-import com.qq.xuexitong.fragment.HomeFragment
-import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.*
 import java.io.IOException
 import java.lang.ref.WeakReference
@@ -71,6 +71,7 @@ open class UserModel {
             call.enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     Log.d(TAG, "onFailure: ${e.message}")
+                    App.showTips(e.message.toString(), Toast.LENGTH_SHORT)
                 }
 
                 override fun onResponse(call: Call, response: Response) {
@@ -88,11 +89,32 @@ open class UserModel {
     }
 
     private fun parseResult(code: Int, text: String?, entity: UserEntity?) {
-        if (code == 555) {
-            //后台请求失败
-            Log.d(TAG, "请求失败: $text")
-            App.showTips("账号或密码错误", Toast.LENGTH_SHORT)
+        when (code) {
+            200 -> {
+                //后台请求成功
+
+            }
+            555 -> {
+                //后台请求失败
+                Log.d(TAG, "请求失败: $text")
+                App.showTips("账号或密码错误", Toast.LENGTH_SHORT)
+            }
+            else -> {
+
+            }
         }
+    }
+
+    fun toLoginPolicy() {
+        val intent = Intent(App.getInstance(), LoginPolicyActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        App.getInstance().startActivity(intent)
+    }
+
+    fun toUserPolicy() {
+        val intent = Intent(App.getInstance(), UserPolicyActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        App.getInstance().startActivity(intent)
     }
 
 }
