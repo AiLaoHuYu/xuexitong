@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -5,15 +7,58 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def getDate() {
+    return Integer.parseInt(new SimpleDateFormat("yyMMdd").format(new Date()))
+}
+
+def verCode = 1
+def verName = "1000"
+def versionPropsFile = file('../version.properties')
+if (versionPropsFile.canRead()) {
+    //载入version.properties
+    Properties versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionPropsFile))
+    //从version.properties根据关键字"VERSION_CODE"取Integer
+    verCode = versionProps['VERSION_CODE'].toInteger()
+    //判断build模式,如果是特定模式
+    // 则自增版本号,并且写回version.properties文件中
+    def runTasks = gradle.startParameter.taskNames
+    //根据实际情况进行处理
+    if ('assembleRelease' in runTasks || 'assembleDebugTest' in runTasks) {
+        //版本号自增并写入版本控制文件
+        versionProps['VERSION_CODE'] = (++verCode).toString()
+        verName = versionProps['VERSION_CODE'].toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+    }
+} else {
+    throw new GradleException("Could not find version.properties!")
+}
+
+def getCurrentTime() {
+    return new Date().format("yyyy-MM-dd_HH-mm", TimeZone.getTimeZone("GMT+8"))
+}
+
 android {
     compileSdkVersion 28
+
+
+    signingConfigs {
+        release {
+            keyAlias 'qqkey'
+            keyPassword '123456'
+            storeFile file('../qq.keystore')
+            storePassword '123456'
+        }
+    }
 
     defaultConfig {
         applicationId "com.qq.xuexitong"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode verCode
+        versionName verName
+
+        signingConfig signingConfigs.release
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,6 +79,13 @@ android {
     dataBinding{
         enabled true
     }
+
+    android.applicationVariants.all { variant ->
+        variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
+            apkData.outputFileName = "xuexitong-${defaultConfig.versionName}_${variant.buildType.name}_${getCurrentTime()}.apk"
+        }
+    }
+
 }
 
 dependencies {
