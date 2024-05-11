@@ -39,4 +39,6 @@
     <string name="app_register_set_password">设置密码</string>
     <string name="login_policy">登录政策</string>
     <string name="user_policy">用户协议</string>
+    <string name="enter_text_here">Enter text here</string>
+    <string name="chat_send">发送</string>
 </resources>

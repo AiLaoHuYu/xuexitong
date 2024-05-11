@@ -40,6 +40,7 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
     private lateinit var tvLoginByOther: TextView
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
+    private lateinit var tvCustomer: TextView
     private lateinit var agree: CheckBox
     private var isPasswordLock = true
     private var url: String =
@@ -89,6 +90,9 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
         //用户输入的密码
         etUserPassword = findViewById(R.id.et_user_password)
         llBack.setOnClickListener(this)
+        //客服
+        tvCustomer = findViewById(R.id.tv_customer)
+        tvCustomer.setOnClickListener(this)
     }
 
     override fun finish() {
@@ -155,6 +159,10 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener {
             R.id.user_policy -> {
                 Log.d(TAG, "用户点击了用户政策")
                 UserModel.get().toUserPolicy()
+            }
+            R.id.tv_customer -> {
+                Log.d(TAG, "用户点击了客服")
+                UserModel.get().toCustomer()
             }
         }
     }

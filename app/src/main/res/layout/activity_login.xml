@@ -7,7 +7,7 @@
     tools:context=".activity.LoginActivity">
 
     <RelativeLayout
-        android:id="@+id/rv_top"
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen50">
 
@@ -53,7 +53,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rv_top"
+        android:layout_below="@+id/rl_top"
         android:layout_marginLeft="@dimen/dimen20"
         android:layout_marginRight="@dimen/dimen20">
 

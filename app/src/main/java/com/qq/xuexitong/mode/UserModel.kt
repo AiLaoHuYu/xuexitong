@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
 import com.qq.xuexitong.App
+import com.qq.xuexitong.activity.ChatActivity
 import com.qq.xuexitong.activity.LoginPolicyActivity
 import com.qq.xuexitong.activity.UserPolicyActivity
 import com.qq.xuexitong.entity.UserEntity
@@ -113,6 +114,12 @@ open class UserModel {
 
     fun toUserPolicy() {
         val intent = Intent(App.getInstance(), UserPolicyActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        App.getInstance().startActivity(intent)
+    }
+
+    fun toCustomer() {
+        val intent = Intent(App.getInstance(), ChatActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         App.getInstance().startActivity(intent)
     }
