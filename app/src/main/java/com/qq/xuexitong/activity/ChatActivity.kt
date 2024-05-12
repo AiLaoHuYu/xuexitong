@@ -2,8 +2,6 @@ package com.qq.xuexitong.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -24,6 +22,7 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var ivBack: ImageView
     private lateinit var rvChatContent: RelativeLayout
     private lateinit var svChat: ScrollView
+    private lateinit var tvFirst: TextView
     private val chatIdList = ArrayList<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +34,13 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         chatViewModel = ChatViewModel(this)
         binding.viewModel = chatViewModel
         chatViewModel.loadData("null")
+        //规避mvvm没有设置成功，监听参数变化动态设置
+        chatViewModel.data.observe(this, { t ->
+            Log.d(App.TAG, "监听到ivFirst变化: $t")
+            if (TextUtils.isEmpty(tvFirst.text)) {
+                tvFirst.text = t
+            }
+        })
         initView()
     }
 
@@ -47,6 +53,7 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         ivBack.setOnClickListener(this)
         rvChatContent = findViewById(R.id.rv_chat_content)
         svChat = findViewById(R.id.sv_chat)
+        tvFirst = findViewById(R.id.tv_first)
     }
 
     override fun onClick(v: View?) {

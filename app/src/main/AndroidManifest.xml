@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".activity.ChatLoadingActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.ChatActivity"
             android:exported="true" />
         <activity
