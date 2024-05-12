@@ -18,9 +18,10 @@ import com.qq.xuexitong.viewModel.ChatViewModel
 
 class ChatActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var chatViewModel: ChatViewModel
+    lateinit var chatViewModel: ChatViewModel
     private lateinit var etChat: EditText
     private lateinit var btnChatSend: Button
+    private lateinit var ivBack: ImageView
     private lateinit var rvChatContent: RelativeLayout
     private lateinit var svChat: ScrollView
     private val chatIdList = ArrayList<Int>()
@@ -31,11 +32,10 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
         val binding =
             DataBindingUtil.setContentView(this, R.layout.activity_chat) as ActivityChatBinding
-        chatViewModel = ChatViewModel()
+        chatViewModel = ChatViewModel(this)
         binding.viewModel = chatViewModel
         chatViewModel.loadData("null")
         initView()
-        setHandlerCallBack()
     }
 
     private fun initView() {
@@ -43,19 +43,10 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         etChat = findViewById(R.id.et_chat)
         btnChatSend = findViewById(R.id.btn_chat_send)
         btnChatSend.setOnClickListener(this)
+        ivBack = findViewById(R.id.iv_back)
+        ivBack.setOnClickListener(this)
         rvChatContent = findViewById(R.id.rv_chat_content)
         svChat = findViewById(R.id.sv_chat)
-    }
-
-    private fun setHandlerCallBack() {
-        chatViewModel.handler = Handler(Looper.getMainLooper()) { msg ->
-            when (msg?.what) {
-                chatViewModel.ADD_CHAT_VIEW -> {
-                    addChatView(msg.obj as String?)
-                }
-            }
-            true
-        }
     }
 
     override fun onClick(v: View?) {
@@ -70,6 +61,9 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
                 svChat.post(Runnable { svChat.fullScroll(View.FOCUS_DOWN) })
                 chatViewModel.loadData(text)
             }
+            R.id.iv_back -> {
+                finish()
+            }
         }
     }
 
@@ -78,7 +72,7 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         Log.d(App.TAG, "text:$text")
         val userTextView = TextView(this)
         userTextView.setBackgroundResource(R.drawable.chat_text_background_right)
-        userTextView.setTextColor(resources.getColor(R.color.text_black2))
+        userTextView.setTextColor(resources.getColor(R.color.text_black))
         userTextView.id = R.id.tv_first + chatIdList.size
         userTextView.text = text
         userTextView.setPadding(25)
@@ -99,11 +93,11 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
 
 
     @Synchronized
-    private fun addChatView(text: String?) {
+    fun addChatView(text: String?) {
         Log.d(App.TAG, "text:$text")
         val userTextView = TextView(this)
         userTextView.setBackgroundResource(R.drawable.chat_text_background_left)
-        userTextView.setTextColor(resources.getColor(R.color.text_black2))
+        userTextView.setTextColor(resources.getColor(R.color.text_black))
         userTextView.id = R.id.tv_first + chatIdList.size
         userTextView.text = text
         userTextView.setPadding(25)
@@ -119,6 +113,7 @@ class ChatActivity : AppCompatActivity(), View.OnClickListener {
         }
         rvChatContent.addView(userTextView, layoutParams)
         rvChatContent.requestLayout()
+        svChat.post(Runnable { svChat.fullScroll(View.FOCUS_DOWN) })
     }
 
 }

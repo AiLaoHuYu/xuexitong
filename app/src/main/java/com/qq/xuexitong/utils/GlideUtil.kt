@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
-class GlideUtil() {
+object GlideUtil {
 //    fun loadImgByGlide(context: Context, url: String, view: ImageView) {
 //        loadImgByGlide(context, url, view)
 //    }

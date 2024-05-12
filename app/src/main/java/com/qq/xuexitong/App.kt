@@ -22,7 +22,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         app = this
-        val user = SharedPreferencesUtil().get().getStringFromSharedPreferences("user","youke")
+        val user = SharedPreferencesUtil.getStringFromSharedPreferences("user","youke")
         isLogin = user != "youke"
     }
 

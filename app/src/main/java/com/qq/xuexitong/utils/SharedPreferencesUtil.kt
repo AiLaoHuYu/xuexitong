@@ -3,19 +3,9 @@ package com.qq.xuexitong.utils
 import android.content.SharedPreferences
 import com.qq.xuexitong.App
 
-open class SharedPreferencesUtil {
+object SharedPreferencesUtil {
 
     private var mInstance: SharedPreferencesUtil? = null
-
-    fun get(): SharedPreferencesUtil {
-        if (mInstance == null) {
-            synchronized(SharedPreferencesUtil::class) {
-                if (mInstance == null)
-                    mInstance = SharedPreferencesUtil()
-            }
-        }
-        return mInstance!!
-    }
 
     private val sharedPreferences: SharedPreferences =
         App.getInstance().getSharedPreferences("xuexitong", 0)

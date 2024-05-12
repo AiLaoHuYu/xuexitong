@@ -58,15 +58,15 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/tv_first"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/chat_text_background_left"
-                        android:text="@{viewModel.data}"
-                        android:textColor="@color/black"
-                        android:padding="25px"
-                        android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/chat_text_background_left"
+                    android:padding="25px"
+                    android:text="@{viewModel.data}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
