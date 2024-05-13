@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.qq.xuexitong.App
 import com.qq.xuexitong.activity.ChatActivity
+import com.qq.xuexitong.activity.ChatLoadingActivity
 import com.qq.xuexitong.activity.LoginPolicyActivity
 import com.qq.xuexitong.activity.UserPolicyActivity
 import com.qq.xuexitong.entity.UserEntity
@@ -119,7 +120,7 @@ open class UserModel {
     }
 
     fun toCustomer() {
-        val intent = Intent(App.getInstance(), ChatActivity::class.java)
+        val intent = Intent(App.getInstance(), ChatLoadingActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         App.getInstance().startActivity(intent)
     }

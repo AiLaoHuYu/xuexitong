@@ -13,6 +13,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var ivBack: ImageView
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
+    private lateinit var tvCustomer: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         loginPolicy.setOnClickListener(this)
         userPolicy = findViewById(R.id.user_policy)
         userPolicy.setOnClickListener(this)
+        tvCustomer = findViewById(R.id.tv_customer)
+        tvCustomer.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -40,6 +43,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.user_policy -> {
                 UserModel.get().toUserPolicy()
+            }
+            R.id.tv_customer->{
+                UserModel.get().toCustomer()
             }
             else -> {
 
