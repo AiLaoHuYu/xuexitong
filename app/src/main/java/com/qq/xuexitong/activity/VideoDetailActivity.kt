@@ -29,7 +29,7 @@ class VideoDetailActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initView() {
         vvVideo = findViewById(R.id.vv_video)
-        vvVideo.setVideoURI(Uri.parse("https://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/22055766_cf08a0fa3c7a885904a49fc240d8bf5d_51f0620bd7a2_0.mp4?vt=1&pt=3&ver=&cr=2&cd=0&sid=&ft=8&tbau=2024-04-26_2e5b38cfd2934490918c8163859ff82beecb267a24574a5e556a4a81459c3cb7&ptid=8592117458"))
+        vvVideo.setVideoURI(Uri.parse("http://vjs.zencdn.net/v/oceans.mp4"))
         val mediaController = MediaController(this)
         vvVideo.setMediaController(mediaController)
         vvVideo.start()

@@ -3,6 +3,7 @@ package com.qq.xuexitong.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.qq.xuexitong.R
@@ -14,6 +15,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
     private lateinit var tvCustomer: TextView
+    private lateinit var btnLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         userPolicy.setOnClickListener(this)
         tvCustomer = findViewById(R.id.tv_customer)
         tvCustomer.setOnClickListener(this)
+        btnLogin = findViewById(R.id.btn_login)
+        btnLogin.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -44,8 +48,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             R.id.user_policy -> {
                 UserModel.get().toUserPolicy()
             }
-            R.id.tv_customer->{
+            R.id.tv_customer -> {
                 UserModel.get().toCustomer()
+            }
+            R.id.btn_login -> {
+
             }
             else -> {
 
