@@ -59,7 +59,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dimen20"
             android:hint="@string/phone_hint"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:maxEms="1" />
 
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="@string/code_hint"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:maxEms="1" />
 
             <TextView

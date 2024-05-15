@@ -3,6 +3,8 @@ package com.qq.xuexitong.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.*
 import com.qq.xuexitong.App
@@ -13,6 +15,7 @@ import com.qq.xuexitong.utils.PatternUtil
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var ivBack: ImageView
+    private lateinit var ivUserPassword: ImageView
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
     private lateinit var tvCustomer: TextView
@@ -20,6 +23,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var etUserCode: EditText
     private lateinit var etUserPassword: EditText
     private lateinit var btnLogin: Button
+    private var isPasswordLock = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         etUserPhone = findViewById(R.id.et_user_phone)
         etUserCode = findViewById(R.id.et_user_code)
         etUserPassword = findViewById(R.id.et_user_password)
+        ivUserPassword = findViewById(R.id.iv_user_password)
+        ivUserPassword.bringToFront()
+        ivUserPassword.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -69,6 +76,17 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     etUserPhone.text = null
                     return
                 }
+            }
+            R.id.iv_user_password -> {
+                if (isPasswordLock) {
+                    etUserPassword.transformationMethod =
+                        HideReturnsTransformationMethod.getInstance()
+                    ivUserPassword.setImageResource(R.drawable.unlock)
+                } else {
+                    etUserPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                    ivUserPassword.setImageResource(R.drawable.lock)
+                }
+                isPasswordLock = !isPasswordLock
             }
             else -> {
 
