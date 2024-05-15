@@ -2,12 +2,13 @@ package com.qq.xuexitong.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import com.qq.xuexitong.App
 import com.qq.xuexitong.R
 import com.qq.xuexitong.mode.UserModel
+import com.qq.xuexitong.utils.PatternUtil
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -15,6 +16,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var loginPolicy: TextView
     private lateinit var userPolicy: TextView
     private lateinit var tvCustomer: TextView
+    private lateinit var etUserPhone: EditText
+    private lateinit var etUserCode: EditText
+    private lateinit var etUserPassword: EditText
     private lateinit var btnLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +39,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         tvCustomer.setOnClickListener(this)
         btnLogin = findViewById(R.id.btn_login)
         btnLogin.setOnClickListener(this)
+        etUserPhone = findViewById(R.id.et_user_phone)
+        etUserCode = findViewById(R.id.et_user_code)
+        etUserPassword = findViewById(R.id.et_user_password)
     }
 
     override fun onClick(v: View?) {
@@ -52,7 +59,16 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 UserModel.get().toCustomer()
             }
             R.id.btn_login -> {
-
+                if (TextUtils.isEmpty(etUserPhone.text)) {
+                    App.showTips("手机号为空，请先输入手机号", Toast.LENGTH_SHORT)
+                    return
+                }
+                val phone = etUserPhone.text.toString()
+                if (!PatternUtil.isMatched(PatternUtil.PHONE, phone)) {
+                    App.showTips("手机号格式错误！", Toast.LENGTH_SHORT)
+                    etUserPhone.text = null
+                    return
+                }
             }
             else -> {
 
