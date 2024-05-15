@@ -16,12 +16,12 @@ object PatternUtil {
      */
     //此处传入两个值，第一个是手机号的正则表达式，第二个是输入的手机号
     fun isMatched(patternStr: String, input: CharSequence): Boolean {
-        val pattern = Pattern.compile(patternStr);
-        val matcher = pattern.matcher(input);
+        val pattern = Pattern.compile(patternStr)
+        val matcher = pattern.matcher(input)
         if (matcher.find()) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
 }

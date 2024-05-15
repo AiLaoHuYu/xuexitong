@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
 import com.qq.xuexitong.App
-import com.qq.xuexitong.activity.ChatActivity
 import com.qq.xuexitong.activity.ChatLoadingActivity
 import com.qq.xuexitong.activity.LoginPolicyActivity
 import com.qq.xuexitong.activity.UserPolicyActivity
@@ -24,7 +23,6 @@ open class UserModel {
     private val TAG = UserModel::class.java.simpleName
     private val thread = Executors.newSingleThreadExecutor()
     private val handler by lazy { WeakReferenceHandler(get()) }
-    private val PARSE_RESULT = 1
 
     companion object {
         private var instance: UserModel? = null
@@ -36,6 +34,8 @@ open class UserModel {
             }
             return instance!!
         }
+
+        const val PARSE_RESULT = 1
     }
 
     class WeakReferenceHandler(obj: UserModel) : Handler(Looper.getMainLooper()) {
@@ -44,9 +44,9 @@ open class UserModel {
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             mRef.get()?.run {
-                Log.d(TAG, "handleMessage: ${msg!!.what} ${msg!!.obj} ")
-                when (msg!!.what) {
-                    PARSE_RESULT -> {
+                Log.d(TAG, "handleMessage: ${msg!!.what} ${msg.obj} ")
+                when (msg.what) {
+                    Companion.PARSE_RESULT -> {
                         val fromJson = msg.obj as UserResult
                         Log.d(
                             TAG,
@@ -82,7 +82,7 @@ open class UserModel {
                     val gson = Gson()
                     val fromJson = gson.fromJson(jsonResult, UserResult::class.java)
                     val message = Message()
-                    message.what = PARSE_RESULT
+                    message.what = Companion.PARSE_RESULT
                     message.obj = fromJson as UserResult
                     handler.sendMessageDelayed(message, 200)
                 }

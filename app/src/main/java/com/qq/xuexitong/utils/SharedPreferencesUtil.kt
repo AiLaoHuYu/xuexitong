@@ -5,8 +5,6 @@ import com.qq.xuexitong.App
 
 object SharedPreferencesUtil {
 
-    private var mInstance: SharedPreferencesUtil? = null
-
     private val sharedPreferences: SharedPreferences =
         App.getInstance().getSharedPreferences("xuexitong", 0)
 
