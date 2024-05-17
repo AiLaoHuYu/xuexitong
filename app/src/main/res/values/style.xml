@@ -4,4 +4,9 @@
         <item name="colorPrimary">@color/blue</item>
         <item name="android:textColorSecondary">@color/gray</item>
     </style>
+
+    <style name="Transparent" parent="Theme.AppCompat.Light">
+        <!--将Activity的Theme设置成透明-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

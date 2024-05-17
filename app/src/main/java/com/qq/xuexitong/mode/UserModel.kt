@@ -125,4 +125,8 @@ open class UserModel {
         App.getInstance().startActivity(intent)
     }
 
+    private fun postDelay(runnable: Runnable, delay: Long) {
+        handler.postDelayed(runnable, delay)
+    }
+
 }

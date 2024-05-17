@@ -17,27 +17,35 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".activity.ChatLoadingActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.ChatActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.UserPolicyActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.LoginPolicyActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.RegisterActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.LoginActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.VideoDetailActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.ClassifyActivity"
+            android:theme="@style/Transparent"
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
